@@ -1,0 +1,41 @@
+{
+  "name": "ecommerce-playwright-automation",
+  "version": "1.0.0",
+  "description": "E-Commerce Automated Testing Framework using Playwright",
+  "author": "Jay Dukare",
+  "main": "index.js",
+  "scripts": {
+    "format": "npx prettier --write .",
+    "format:check": "npx prettier . --check \"!**.ts\"",
+    "lint": "npx eslint . --ext .ts --max-warnings=0",
+    "test": "npx playwright test",
+    "test:all": "BASE_URL=$BASE_URL API_URL=$API_URL DEFAULT_USER_EMAIL=$DEFAULT_USER_EMAIL DEFAULT_USER_PASSWORD=$DEFAULT_USER_PASSWORD npx playwright test --grep-invert /@setup/",
+    "test:headed": "npm run test -- --headed",
+    "test:ui": "npm run test -- --ui",
+    "show-report": "npx playwright show-report",
+    "test:setup:workflow": "BASE_URL=$BASE_URL API_URL=$API_URL npx playwright test --grep /@setup/",
+    "test:api:integration:workflow": "BASE_URL=$BASE_URL API_URL=$API_URL DEFAULT_USER_EMAIL=$DEFAULT_USER_EMAIL DEFAULT_USER_PASSWORD=$DEFAULT_USER_PASSWORD npx playwright test --grep /@api-integration/",
+    "test:ui:smoke:workflow": "BASE_URL=$BASE_URL API_URL=$API_URL npx playwright test --grep /@smoke-ui/",
+    "test:ui:e2e:workflow": "BASE_URL=$BASE_URL API_URL=$API_URL DEFAULT_USER_EMAIL=$DEFAULT_USER_EMAIL DEFAULT_USER_PASSWORD=$DEFAULT_USER_PASSWORD npx playwright test --grep \"/@logged/|/@e2e/\""
+  },
+  "keywords": [],
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+    "@types/node": "^20.12.7",
+    "@typescript-eslint/eslint-plugin": "^7.7.0",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^1.6.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "globals": "^15.0.0",
+    "prettier": "3.2.5",
+    "typescript-eslint": "^7.7.0"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "dotenv": "^16.6.1",
+    "playwright": "^1.51.1"
+  }
+}
